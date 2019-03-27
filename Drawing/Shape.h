@@ -10,9 +10,38 @@ using namespace sf;
 // for Circle and Square
 class DrawingShape 
 {
+
+public:
+	virtual void draw() = 0;
 };
 
-// add Circle, Square classes below. These are derived from DrawingShape
+class Circle :public DrawingShape
+{
+private:
+	
+public:
+	Circle()
+	{
+		
+	}
+
+	
+
+	void draw()
+	{
+		win.draw()
+	}
+};
+
+class Square :public DrawingShape
+{
+public:
+	Square()
+	{
+
+	}
+};
+
 
 
 
