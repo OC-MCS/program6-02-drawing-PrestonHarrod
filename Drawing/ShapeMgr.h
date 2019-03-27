@@ -18,7 +18,7 @@ struct Shapes
 class ShapeMgr
 {
 private:
-	vector<Shapes *> shapeList;
+	vector<DrawingShape *> shapeList;
 public:
 	ShapeMgr()
 	{
@@ -27,12 +27,10 @@ public:
 
 	void addShape(Vector2f pos, ShapeEnum whichShape, Color color)
 	{
-		Shapes *shape;
-		unsigned colorNumber = color.toInteger();
-		shape->color = colorNumber;
-		shape->shape = whichShape;
-		shape->positon = pos;
-		shapeList.push_back(shape);
+		if (whichShape == 0)
+		{
+			Circle circle;
+		}
 	}
 
 };
