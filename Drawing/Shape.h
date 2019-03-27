@@ -29,7 +29,7 @@ public:
 		win.draw(circle);
 	}
 
-	Shapes getRecordfile(Shapes other)
+	Shapes getRecordfile(Shapes &other)
 	{
 		return other;
 	}
@@ -45,7 +45,7 @@ public:
 		win.draw(square);
 	}
 
-	Shapes getRecordFile(Shapes other)
+	Shapes getRecordFile(Shapes &other)
 	{
 		return other;
 	}
