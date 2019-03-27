@@ -12,6 +12,16 @@ class DrawingShape
 {
 };
 
+class Circle :public DrawingShape
+{
+
+};
+
+class Square :public DrawingShape
+{
+
+};
+
 // add Circle, Square classes below. These are derived from DrawingShape
 
 

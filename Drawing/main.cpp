@@ -49,7 +49,6 @@ int main()
 			}
 			else if (event.type == Event::MouseMoved && Mouse::isButtonPressed(Mouse::Button::Left))
 			{
-				
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
 				// check to see if mouse is in the drawing area
 				if (drawingUI.isMouseInCanvas(mousePos))
