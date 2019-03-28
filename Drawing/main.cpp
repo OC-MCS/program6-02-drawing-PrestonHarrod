@@ -39,13 +39,16 @@ int main()
 			{
 				window.close();
 				// ****** Add code here to write all data to shapes file
+				fstream file;
+				file.open("shapes.bin", ios::binary);
+				settingsMgr.write(file);
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{
 				// maybe they just clicked on one of the settings "buttons"
 				// check for this and handle it.
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
-				settingsUI.handleMouseUp(mousePos);
+				settingsUI.handleMouseUp(mousePos, &settingsMgr);
 			}
 			else if (event.type == Event::MouseMoved && Mouse::isButtonPressed(Mouse::Button::Left))
 			{

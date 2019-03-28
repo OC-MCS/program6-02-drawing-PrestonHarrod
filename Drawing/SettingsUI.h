@@ -25,13 +25,13 @@ public:
 	{
 		color = mgr->getCurColor();
 		shape = mgr->getCurShape();
-
 	}
 
-	void handleMouseUp(Vector2f mouse)
+	void handleMouseUp(Vector2f mouse, SettingsMgr *mgr)
 	{
 		if (blueBtn.getGlobalBounds().contains(mouse))
 		{
+			mgr->setColor(Color::Blue);
 			blueBtn.setFillColor(Color::Blue);
 			redBtn.setFillColor(Color::Transparent);
 			green.setFillColor(Color::Transparent);
@@ -39,6 +39,7 @@ public:
 		}
 		else if (redBtn.getGlobalBounds().contains(mouse))
 		{
+			mgr->setColor(Color::Red);
 			blueBtn.setFillColor(Color::Transparent);
 			redBtn.setFillColor(Color::Red);
 			green.setFillColor(Color::Transparent);
@@ -46,6 +47,7 @@ public:
 		}
 		else if (green.getGlobalBounds().contains(mouse))
 		{
+			mgr->setColor(Color::Green);
 			blueBtn.setFillColor(Color::Transparent);
 			redBtn.setFillColor(Color::Transparent);
 			green.setFillColor(Color::Green);
@@ -54,12 +56,14 @@ public:
 
 		if (circleBtn.getGlobalBounds().contains(mouse))
 		{
+			mgr->setShape(CIRCLE);
 			circleBtn.setFillColor(Color::White);
 			squareBtn.setFillColor(Color::Transparent);
 			make = true;
 		}
 		else if (squareBtn.getGlobalBounds().contains(mouse))
 		{
+			mgr->setShape(SQUARE);
 			circleBtn.setFillColor(Color::Transparent);
 			squareBtn.setFillColor(Color::White);
 			make = true;

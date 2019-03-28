@@ -8,12 +8,6 @@ using namespace sf;
 
 // finish the ShapeMgr class.
 
-struct Shapes
-{
-	Vector2f positon;
-	int color;
-	ShapeEnum shape;
-};
 
 class ShapeMgr
 {
@@ -27,10 +21,28 @@ public:
 
 	void addShape(Vector2f pos, ShapeEnum whichShape, Color color)
 	{
-		if (whichShape == 0)
+		if (whichShape == CIRCLE)
 		{
-			Circle circle;
+			Circle *circle = new Circle(pos, color);
+			shapeList.push_back(circle);
 		}
+		else if (whichShape == SQUARE)
+		{
+			Square *square = new Square(pos, color);
+			shapeList.push_back(square);
+
+		}
+	}
+
+	void write(fstream &file)
+	{
+	
+	}
+
+	vector<DrawingShape *> returnList() const
+	{
+		vector<DrawingShape *> p = shapeList;
+		return p;
 	}
 
 };
