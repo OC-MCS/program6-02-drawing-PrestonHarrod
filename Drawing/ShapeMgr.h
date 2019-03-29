@@ -36,7 +36,23 @@ public:
 
 	void write(fstream &file)
 	{
-	
+		for (int i = 0; i < shapeList.size(); i++)
+		{
+			Shapes s = shapeList[i]->getFileRecord();
+			file.write(reinterpret_cast<char *>(&s), sizeof(s));
+		}
+		file.close();
+	}
+
+	void read(fstream &file)
+	{
+		Shapes s;
+		while (file.read(reinterpret_cast<char *>(&s), sizeof(s)))
+		{
+			Vector2f a(s.x, s.y);
+			Color aColor(s.color);
+			addShape(a, s.shape, aColor);
+		}
 	}
 
 	vector<DrawingShape *> returnList() const

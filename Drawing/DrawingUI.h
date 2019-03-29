@@ -32,7 +32,7 @@ public:
 		shap = mgr->returnList();
 		if (shap.size() != 0)
 		{
-			for (int i = 0; i < shap.size(); i++)
+		for (int i = 0; i < shap.size(); i++)
 			{
 				shap[i]->draw(win);
 			}

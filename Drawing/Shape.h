@@ -6,7 +6,8 @@ using namespace sf;
 
 struct Shapes
 {
-	Vector2f positon;
+	float x;
+	float y;
 	int color;
 	ShapeEnum shape;
 };
@@ -38,6 +39,8 @@ private:
 public:
 	Circle(Vector2f p, Color col)
 	{
+		position = p;
+		color = col;
 		circle.setPosition(p);
 		circle.setRadius(radius);
 		circle.setFillColor(col);
@@ -55,7 +58,8 @@ public:
 		unsigned i = color.toInteger();
 		s.color = i;
 		s.shape = CIRCLE;
-		s.positon = position;
+		s.x = position.x;
+		s.y = position.y;
 
 		return s;
 	}
@@ -73,6 +77,8 @@ public:
 
 	Square(Vector2f p,  Color col)
 	{
+		position = p;
+		color = col;
 		square.setSize(Vector2f(20,20));
 		square.setPosition(p);
 		square.setFillColor(col);
@@ -89,7 +95,8 @@ public:
 		unsigned i = color.toInteger();
 		s.color = i;
 		s.shape = SQUARE;
-		s.positon = position;
+		s.x = position.x;
+		s.y = position.y;
 
 		return s;
 	}

@@ -1,5 +1,5 @@
 //================================================
-// YOUR NAME GOES HERE <-----------------  
+// Preston Harrod <-----------------  
 //================================================
 #include <iostream>
 #include <fstream>
@@ -27,9 +27,14 @@ int main()
 	SettingsUI  settingsUI(&settingsMgr); 
 	ShapeMgr    shapeMgr;
 	DrawingUI   drawingUI(Vector2f(200, 50));
+	Shapes s;
 	
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
+	fstream file;
+	file.open("shapes.bin", ios::in | ios::out, ios::binary);
 
+	settingsMgr.read(file);
+	shapeMgr.read(file);
 	while (window.isOpen()) 
 	{
 		Event event;
@@ -39,9 +44,8 @@ int main()
 			{
 				window.close();
 				// ****** Add code here to write all data to shapes file
-				fstream file;
-				file.open("shapes.bin", ios::binary);
 				settingsMgr.write(file);
+				shapeMgr.write(file);
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{
@@ -66,7 +70,7 @@ int main()
 		window.clear();
 
 		// this should draw the left hand side of the window (all of the settings info)
-		settingsUI.draw(window);
+		settingsUI.draw(window, &settingsMgr);
 
 		// this should draw the rectangle that encloses the drawing area, then draw the
 		// shapes. This is passed the shapeMgr so that the drawingUI can get the shapes

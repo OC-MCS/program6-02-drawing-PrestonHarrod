@@ -71,7 +71,7 @@ public:
 
 	}
 
-	void draw(RenderWindow& win)
+	void draw(RenderWindow& win, SettingsMgr *mgr)
 	{
 		Font font;
 		if (!font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf"))
@@ -120,35 +120,37 @@ public:
 		win.draw(circleBtn);
 		win.draw(squareBtn);
 
-		if (color == Color::Blue && !make)
+
+		
+
+		if (mgr->getCurColor() == Color::Blue)
 		{
 			blueBtn.setFillColor(Color::Blue);
 			redBtn.setFillColor(Color::Transparent);
 			green.setFillColor(Color::Transparent);
 		}
-		if (color == Color::Red && !make)
+		if (mgr->getCurColor() == Color::Red)
 		{
 			blueBtn.setFillColor(Color::Transparent);
 			redBtn.setFillColor(Color::Red);
 			green.setFillColor(Color::Transparent);
 		}
-		if (color == Color::Green && !make)
+		if (mgr->getCurColor() == Color::Green)
 		{
 			blueBtn.setFillColor(Color::Transparent);
 			redBtn.setFillColor(Color::Transparent);
 			green.setFillColor(Color::Green);
 		}
-		if (shape == 0 && !make)
+		if (mgr->getCurShape() == CIRCLE)
 		{
 			circleBtn.setFillColor(Color::White);
 			squareBtn.setFillColor(Color::Transparent);
 		}
-		if (shape == 1)
+		if (mgr->getCurShape() == SQUARE)
 		{
 			circleBtn.setFillColor(Color::Transparent);
 			squareBtn.setFillColor(Color::White);
 		}
-
 	}
 
 	void die(string msg)
